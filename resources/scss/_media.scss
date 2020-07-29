@@ -1,0 +1,24 @@
+/* Small (sm) */
+@media (min-width: 640px) { /* ... */ }
+
+/* Medium (md) */
+@media (min-width: 768px) { /* ... */ }
+
+/* Large (lg) */
+@media (min-width: 1024px) { /* ... */ }
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) { /* ... */ }
+
+
+/* Small (sm) */
+@media (max-width: 640px) {}
+
+/* Medium (md) */
+@media (max-width: 768px) {}
+
+/* Large (lg) */
+@media (max-width: 1024px) {}
+
+/* Extra Large (xl) */
+@media (max-width: 1280px) {}

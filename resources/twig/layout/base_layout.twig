@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="theme-color" content="#3182ce">
+    <meta name="msapplication-navbutton-color" content="#3182ce">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3182ce">
+
+    {% set site_name = 'Machinery' %}
+    <title>{{ site_name }} {% if page_name %} - {% endif %} {{ page_name }}</title>
+    <meta name="description" content="">
+
+    {# <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> #}
+
+    {% set version = '?v=' ~ random() %}
+    {# <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> #}
+
+    <link rel="stylesheet" href="/frontend/css/style.css{% if version %}{{ version }}{% endif %}">
+</head>
+    <body class="text-gray-700">
+
+    <div id="app">
+
+      
+
+        {% include '../common/nav/nav.twig' %}
+        {% include '../common/header/header.twig' %}
+       
+
+
+        {% block content %}{% endblock %}
+
+        {% include '../common/footer/footer.twig' %}
+
+        <mobile-menu inline-template :is-show="isMobileMenuShow" :close="toggleMobileMenu">
+          {% include '../common/modal/modal.twig' %}
+        </mobile-menu>
+
+        {% include '../debug/debug.twig' %}
+
+    </div>
+
+        <script src="frontend/js/app.js{% if version %}{{ version }}{% endif %}"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
+
+<!--
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+
+        <script src="/js/assets.js{% if version %}{{ version }}{% endif %}"></script>
+        <script src="/js/main.js{% if version %}{{ version }}{% endif %}"></script>
+
+-->
+
+    </body>
+</html>
+
