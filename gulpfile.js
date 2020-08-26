@@ -86,10 +86,10 @@ function doBrowserSync(done) {
 
 function doWatch () {
 
-    gulp.watch('resources/scss/**/*.scss', doScss);
-    gulp.watch('resources/twig/**/*.scss', doScss);
-    gulp.watch('resources/twig/**/*.twig', doTwig);
-    gulp.watch('resources/twig/**/*.html', doTwig);
+  gulp.watch('resources/scss/**/*.scss', doScss);
+  gulp.watch('resources/twig/**/*.scss', doScss);
+  gulp.watch('resources/twig/**/*.twig', doTwig);
+  gulp.watch('resources/twig/**/*.html', doTwig);
 
 }
 
@@ -99,13 +99,13 @@ function doWatch () {
 
 function doTwig () {
 
-    return gulp.src('resources/twig/pages/*.{twig,html}')
-        .pipe(plumber())
-        .pipe(twig())
-        .pipe(replace('/resources/', ''))
-        .pipe(htmlbeautify())
-        .pipe(gulp.dest('public'))
-        .pipe(browserSync.stream());
+  return gulp.src('resources/twig/pages/*.{twig,html}')
+    .pipe(plumber())
+    .pipe(twig())
+    .pipe(replace('/resources/', ''))
+    .pipe(htmlbeautify())
+    .pipe(gulp.dest('public'))
+    .pipe(browserSync.stream());
 }
 
 
@@ -115,21 +115,21 @@ function doTwig () {
 
 function doScss () {
 
-    return gulp.src(['resources/scss/main.scss'])
-        .pipe(sourcemaps.init())
-        .pipe(concat('style.scss'))
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(postcss([
-          tailwindcss('tailwind.config.js'),
-        ]))
-        .pipe(autoprefixer())
-        .pipe(csscomb())
-        .pipe(replace('/resources/', '../'))
-        .pipe(csso())
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/frontend/css/'))
-        .pipe(browserSync.stream());
+  return gulp.src(['resources/scss/main.scss'])
+    .pipe(sourcemaps.init())
+    .pipe(concat('style.scss'))
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(postcss([
+      tailwindcss('tailwind.config.js'),
+    ]))
+    .pipe(autoprefixer())
+    .pipe(csscomb())
+    .pipe(replace('/resources/', '../'))
+    .pipe(csso())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('public/frontend/css/'))
+    .pipe(browserSync.stream());
 
 }
 
@@ -142,15 +142,20 @@ function doScss () {
 // });
 
 // gulp.task('fonts', function () {
-//     return watch('resources/fonts/**/**/*.*', function () {
-//         gulp.src('resources/fonts/**/**/*.*')
-//             .pipe(plumber())
-//             .pipe(newer('app/fonts'))
-//             .pipe(gulp.dest('app/fonts'));
-//     });
+//   return watch('resources/fonts/**/**/*.*', function () {
+//     gulp.src('resources/fonts/**/**/*.*')
+//       .pipe(plumber())
+//       .pipe(newer('app/fonts'))
+//       .pipe(gulp.dest('app/fonts'));
+//   });
 // });
 
-
+function doFonts() {
+  return gulp.src('resources/fonts/**/**/*.*')
+    .pipe(plumber())
+    .pipe(newer('app/fonts'))
+    .pipe(gulp.dest('app/fonts'));
+}
 
 // gulp.task('svg', function () {
 //     return watch('src/img/**/**/*.svg', function () {

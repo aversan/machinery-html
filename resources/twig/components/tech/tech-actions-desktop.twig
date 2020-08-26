@@ -1,0 +1,15 @@
+{% import "../icons/icons.twig" as icons %}
+
+{% set items = [
+  { icon: 'image', text: 'Добавить фото' },
+  { icon: 'map-marker', text: 'Место на карте' },
+  { icon: 'edit', text: 'Редактировать' },
+  { icon: 'delete', text: 'Удалить', type: 'danger' }
+] %}
+
+{% for item in items %}
+  <span class="btn btn-link btn-link-{{ item.type | default("primary") }} btn-icon" role="button">
+    <span class="btn-icon-wrapper">{{ icons.get(item.icon|lower) }}</span>
+    {{ item.text }}
+  </span>
+{% endfor %}

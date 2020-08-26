@@ -1,0 +1,15 @@
+{% import "../icons/icons.twig" as icons %}
+
+<span class="btn btn-only-icon btn-link btn-link-success btn-lg {{ item.isBanned ? 'disabled' : '' }}" role="button">
+  {{ icons.get('ruble') }}
+</span>
+<span class="btn btn-only-icon btn-link btn-link-primary btn-lg {{ item.isBanned ? 'disabled' : '' }}" role="button">
+  {{ icons.get('edit') }}
+</span>
+<span class="btn btn-only-icon btn-link btn-link-{{ item.isBanned ? 'success' : 'danger' }} btn-lg" role="button">
+  {%if item.isBanned %}
+    {{ icons.get('publish') }}
+  {%else%}
+    {{ icons.get('ban') }}
+  {%endif%}
+</span>

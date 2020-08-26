@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="theme-color" content="#3182ce">
+    <meta name="msapplication-navbutton-color" content="#3182ce">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3182ce">
+
+    <title>Machinery </title>
+    <meta name="description" content="">
+
+
+
+
+
+    <link rel="stylesheet" href="/frontend/css/style.css?v=1252748921">
+</head>
+
+<body class="text-gray-700 bg-indigo-50">
+
+    <div id="app">
+
+
+
+        <nav x-data="{ open: false }" @keydown.window.escape="open = false" class="bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 xl:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-8 w-8" src="/img/logos/workflow-mark-on-dark.svg" alt="Workflow logo" />
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline">
+                                <a href="#" class="px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
+                                <a href="#" class="ml-4 px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Team</a>
+                                <a href="#" class="ml-4 px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Projects</a>
+                                <a href="#" class="ml-4 px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Calendar</a>
+                                <a href="#" class="ml-4 px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-4 flex items-center md:ml-6">
+                            <button class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700" aria-label="Notifications">
+                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                </svg>
+                            </button>
+                            <div @click.away="open = false" class="ml-3 relative" x-data="{ open: false }">
+                                <div>
+                                    <button @click="open = !open" class="max-w-xs flex items-center text-base rounded-full text-white focus:outline-none focus:shadow-solid" id="user-menu" aria-label="User menu" aria-haspopup="true" x-bind:aria-expanded="open">
+                                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    </button>
+                                </div>
+                                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                                    <div class="py-1 rounded-md bg-white shadow-xs">
+                                        <a href="#" class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100">Your Profile</a>
+                                        <a href="#" class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100">Settings</a>
+                                        <a href="#" class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100">Sign out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="-mr-2 flex md:hidden">
+                        <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" x-bind:aria-label="open ? 'Close main menu' : 'Main menu'" x-bind:aria-expanded="open">
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div :class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 md:px-3">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
+                    <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Team</a>
+                    <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Projects</a>
+                    <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Calendar</a>
+                    <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Reports</a>
+                </div>
+                <div class="pt-4 pb-3 border-t border-gray-700">
+                    <div class="flex items-center px-5">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                        </div>
+                        <div class="ml-3">
+                            <div class="text-base font-medium leading-none text-white">Tom Cook</div>
+                            <div class="mt-1 text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 px-2" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" role="menuitem">
+                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Your Profile</a>
+                        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Settings</a>
+                        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Sign out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+
+        <main>
+            <div class="max-w-7xl mx-auto px-4 xl:px-8 py-8 md:py-5 xl:py-8">
+                <div class="grid rounded-xl border border-indigo-100 bg-white tech-item">
+                    <section class="tech-info-container">
+
+                        <header class="flex items-end flex-no-wrap pt-3 md:pt-7 xl:pt-5_5 tech-header">
+                            <span class="text-lg px-2 py-1 rounded font-medium bg-indigo-500 text-white leading-none">#667ACD</span>
+                            <div class="tech-progress-container flex-1 ml-4 flex flex-col">
+                                <span class="text-sm font-medium text-success leading-tighter mb-1_5">Актуально</span>
+                                <div class="overflow-hidden h-0_5 flex rounded bg-gray-100 w-full tech-progress">
+                                    <div style="width:50%" class="bg-green-400"></div>
+
+
+                                </div>
+                            </div>
+                            <button class="btn btn-warning font-bold inline-flex items-center h-6_5 py-0 ml-4">
+                                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-box inline-block md:hidden">
+                                    <g clip-path="url(#clip0)">
+                                        <path d="M13.1331 5.24808V13.8438H2.20328V5.24808H1.16235V14.3534C1.16235 14.6349 1.39534 14.863 1.68282 14.863H13.6536C13.9411 14.863 14.1741 14.6349 14.1741 14.3534V5.24808H13.1331Z" />
+                                        <path d="M14.7987 1.13699H0.520462C0.232989 1.13699 0 1.36513 0 1.64661V5.24796C0 5.52944 0.232989 5.75758 0.520462 5.75758H14.7987C15.0861 5.75758 15.3191 5.52944 15.3191 5.24796V1.64661C15.3191 1.36513 15.0862 1.13699 14.7987 1.13699ZM14.2782 4.73834H1.04092V2.15626H14.2782V4.73834Z" />
+                                        <path d="M10.739 7.04874H4.59749C4.31002 7.04874 4.07703 7.27687 4.07703 7.55836V9.98757C4.07703 10.2691 4.31002 10.4972 4.59749 10.4972H10.739C11.0267 10.4972 11.2595 10.2691 11.2595 9.98757V7.55836C11.2595 7.27687 11.0265 7.04874 10.739 7.04874ZM10.2186 9.47795H5.11795V8.06798H10.2185V9.47795H10.2186Z" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0">
+                                            <rect width="15.3191" height="15" transform="translate(0 0.5)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                                <span class="hidden md:inline">Заказ запастных частей</span>
+                            </button>
+                        </header>
+
+
+                        <article class="tech-info">
+                            <header class="mb-4_5 mt-5 md:mt-8">
+                                <h3 class="text-xl leading-tighter font-bold tracking-wide text-black">Вакуумная машина <span class="text-primary">DONGFENG 134-231</span></h3>
+                                <p class="text-indigo-250 font-medium text-sm tech-card-subtitle mt-1_5">(Асенизаторы \ илососы длинная строка )</p>
+                            </header>
+                            <div class="flex flex-col md:flex-row md:items-center pb-5 md:pb-7">
+
+
+                                <div class="mb-5 md:mb-0 md:mr-6 md:w-1/4 xl:w-1/3">
+
+
+                                    <div class="relative">
+                                        <div class="aspect-ratio-2/1 md:aspect-ratio-none"></div>
+                                        <div class="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center text-center rounded-xl bg-indigo-100 text-indigo-350">
+                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-image-group w-5_5 h-5_5">
+                                                <path d="M21.2904 5.09786H17.813V6.51721H20.5807V18.4871H4.66031V16.2161H3.24097V19.1968C3.24097 19.5887 3.55868 19.9064 3.95064 19.9064H21.2904C21.6824 19.9064 22.0001 19.5887 22.0001 19.1968V5.80753C22.0001 5.41557 21.6824 5.09786 21.2904 5.09786Z" />
+                                                <path d="M18.4989 16.0342V2.8032C18.4989 2.41124 18.1812 2.09353 17.7892 2.09353H0.709672C0.317711 2.09353 0 2.4112 0 2.8032V16.2161C0 16.6081 0.317711 16.9258 0.709672 16.9258H17.8129C18.2049 16.9258 18.5226 16.6083 18.5226 16.2163C18.5226 16.1534 18.5143 16.0921 18.4989 16.0342ZM17.0796 15.5064H1.41934V3.51287H17.0796V15.5064Z" />
+                                                <path d="M11.3549 4.38818C10.1941 4.38818 9.24951 5.33277 9.24951 6.49357C9.24951 7.65437 10.1941 8.59895 11.3549 8.59895C12.5157 8.59895 13.4603 7.65437 13.4603 6.49357C13.4603 5.33277 12.5157 4.38818 11.3549 4.38818ZM11.3549 7.17956C10.9766 7.17956 10.6689 6.87182 10.6689 6.49352C10.6689 6.11523 10.9766 5.80748 11.3549 5.80748C11.7334 5.80748 12.0409 6.11523 12.0409 6.49352C12.0409 6.87182 11.7334 7.17956 11.3549 7.17956Z" />
+                                                <path d="M12.3893 13.2592L8.22585 7.20302C8.0936 7.01048 7.8748 6.89549 7.64109 6.89549C7.64062 6.89549 7.64036 6.89549 7.64015 6.89549C7.40597 6.89571 7.18713 7.01142 7.05513 7.2047L2.91534 13.2606C2.7668 13.478 2.75069 13.7597 2.87349 13.9925C2.99626 14.2253 3.23778 14.371 3.5011 14.371H11.8043C12.0681 14.371 12.3099 14.2251 12.4329 13.9916C12.5554 13.7583 12.5388 13.4763 12.3893 13.2592ZM4.84567 12.9516L7.64251 8.86032L10.4552 12.9516H4.84567Z" />
+                                                <path d="M16.0483 13.2175L13.2806 9.76348C13.1457 9.59552 12.942 9.49759 12.7268 9.49759H12.7265C12.511 9.49785 12.3071 9.59577 12.1725 9.76395L10.3746 12.0113L11.4831 12.8979L12.7272 11.3428L14.0164 12.9516H9.95898V14.3709H15.4945C15.7672 14.3709 16.0161 14.2146 16.1341 13.9685C16.2525 13.7225 16.2191 13.4304 16.0483 13.2175Z" />
+                                            </svg>
+
+                                            <span class="text-lg leading-normal font-medium mt-3 flex flex-col">
+                                                <span>Нет доступной</span>
+                                                <span>фотографии</span>
+                                            </span>
+                                        </div>
+                                        <img class="w-full h-full hidden md:block md:invisible" src="http://placehold.it/185x144" alt="">
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <ul class="list-none tech-info-list grid gap-2">
+                                        <li class="leading-tighter text-base grid-flow-row flex tech-info-item"><span class="text-gray-500 title flex-1">Емкость цистерны:</span><span class="text-gray-950 ml-4 text flex items-end justify-end md:justify-start">6м</span></li>
+                                        <li class="leading-tighter text-base grid-flow-row flex tech-info-item"><span class="text-gray-500 title flex-1">Тип вакуумной машины:</span><span class="text-gray-950 ml-4 text flex items-end justify-end md:justify-start">Илосос</span></li>
+                                        <li class="leading-tighter text-base grid-flow-row flex tech-info-item"><span class="text-gray-500 title flex-1">Глубина всасывания</span><span class="text-gray-950 ml-4 text flex items-end justify-end md:justify-start">23 м</span></li>
+                                        <li class="leading-tighter text-base grid-flow-row flex tech-info-item"><span class="text-gray-500 title flex-1">Длина шланга:</span><span class="text-gray-950 ml-4 text flex items-end justify-end md:justify-start">6,7 м3</span></li>
+                                        <li class="leading-tighter text-base grid-flow-row flex tech-info-item"><span class="text-gray-500 title flex-1">Емкость цистерны:</span><span class="text-gray-950 ml-4 text flex items-end justify-end md:justify-start">6м</span></li>
+                                        <li class="leading-tighter text-base grid-flow-row flex tech-info-item"><span class="text-gray-500 title flex-1">Тип вакуумной машины:</span><span class="text-gray-950 ml-4 text flex items-end justify-end md:justify-start">Илосос</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="flex items-center flex-no-wrap border-t border-b tech-actions-container h-14 md:h-15">
+                            <div class="flex items-center font-bold text-success">
+                                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-checked mr-2">
+                                    <path d="M15.5426 2.18731C15.3072 1.95153 14.9253 1.95112 14.6899 2.18631L7.45577 9.40137L4.8457 6.56659C4.62017 6.32177 4.23886 6.3059 3.99364 6.5314C3.74861 6.75693 3.73292 7.13843 3.95845 7.38346L6.99364 10.6797C7.1048 10.8006 7.26036 10.8707 7.42439 10.8741C7.4288 10.8743 7.43305 10.8743 7.43727 10.8743C7.59667 10.8743 7.75002 10.811 7.86299 10.6984L15.5414 3.04015C15.7774 2.80499 15.7778 2.42309 15.5426 2.18731Z" />
+                                    <path d="M15.397 7.39697C15.0639 7.39697 14.794 7.66691 14.794 8C14.794 11.7463 11.7463 14.794 8 14.794C4.25387 14.794 1.20603 11.7463 1.20603 8C1.20603 4.25387 4.25387 1.20603 8 1.20603C8.33306 1.20603 8.60303 0.936094 8.60303 0.603031C8.60303 0.269938 8.33306 0 8 0C3.58875 0 0 3.58875 0 8C0 12.4111 3.58875 16 8 16C12.4111 16 16 12.4111 16 8C16 7.66694 15.7301 7.39697 15.397 7.39697Z" />
+                                </svg>
+
+                                Проверено
+                            </div>
+                            <div class="ml-auto -mr-3 flex items-center flex-no-wrap flex md:hidden">
+
+
+                                <span class="btn btn-link btn-only-icon btn-xl btn-link-primary btn-icon" title="Добавить фото">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-image ">
+                                        <g clip-path="url(#clip0)">
+                                            <path d="M15.4286 1.14282H0.571437C0.255812 1.14282 0 1.39863 0 1.71426V14.2857C0 14.6013 0.255812 14.8571 0.571437 14.8571H15.4286C15.7442 14.8571 16 14.6013 16 14.2857V1.71426C16 1.39863 15.7442 1.14282 15.4286 1.14282ZM14.8572 13.7143H1.14284V2.2857H14.8571V13.7143H14.8572Z" />
+                                            <path d="M6.80564 5.5255C6.62564 5.30397 6.31001 5.24894 6.06564 5.39713L0.256104 8.92091L0.848666 9.89825L6.23229 6.63253L12.661 14.5506L13.5485 13.8304L6.80564 5.5255Z" />
+                                            <path d="M11.8596 5.45352C11.6375 5.26134 11.3057 5.26859 11.0925 5.47106L8.12109 8.29009L8.90756 9.11944L11.5034 6.65659L15.0737 9.7465L15.8215 8.88212L11.8596 5.45352Z" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0">
+                                                <rect width="16" height="16" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </span>
+                                <span class="btn btn-link btn-only-icon btn-xl btn-link-primary btn-icon" title="Место на карте">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-map-marker ">
+                                        <g clip-path="url(#clip0)">
+                                            <path d="M8.00002 0C4.17627 0 1.06543 2.92284 1.06543 6.51559C1.06543 11.3915 7.42805 15.4121 7.69909 15.5808C7.79087 15.6381 7.89534 15.6667 8.00002 15.6667C8.10452 15.6667 8.20918 15.6379 8.30096 15.5808C8.57199 15.4121 14.9346 11.3915 14.9346 6.51559C14.9346 2.92284 11.824 0 8.00002 0ZM7.99984 14.4547C6.76824 13.615 2.18693 10.2388 2.18693 6.51559C2.18693 3.5283 4.79459 1.09814 8.00002 1.09814C11.2055 1.09814 13.8131 3.5283 13.8131 6.51559C13.8131 10.2328 9.23087 13.6139 7.99984 14.4547Z" />
+                                            <path d="M7.99994 2.98346C6.25806 2.98346 4.84106 4.37094 4.84106 6.07652C4.84106 7.78193 6.25806 9.16941 7.99994 9.16941C9.74181 9.16941 11.1588 7.78193 11.1588 6.07652C11.1588 4.37115 9.74181 2.98346 7.99994 2.98346ZM7.99994 8.07112C6.87656 8.07112 5.96256 7.17631 5.96256 6.07637C5.96256 4.9764 6.87659 4.08144 7.99994 4.08144C9.12331 4.08144 10.0373 4.97625 10.0373 6.07637C10.0373 7.17631 9.12331 8.07112 7.99994 8.07112Z" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0">
+                                                <rect width="16" height="15.6667" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </span>
+                                <span class="btn btn-link btn-only-icon btn-xl btn-link-primary btn-icon" title="Редактировать">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                        <g clip-path="url(#clip0)">
+                                            <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                            <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                            <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                            <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0">
+                                                <rect width="16" height="16" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </span>
+                                <span class="btn btn-link btn-only-icon btn-xl btn-link-danger btn-icon" title="Удалить">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-delete ">
+                                        <g clip-path="url(#clip0)">
+                                            <path d="M11.0492 5.51652L9.7968 5.47058L9.52527 12.8857L10.7777 12.9315L11.0492 5.51652Z" />
+                                            <path d="M8.62666 5.49353H7.37341V12.9087H8.62666V5.49353Z" />
+                                            <path d="M6.47453 12.8855L6.203 5.4704L4.95056 5.51637L5.22212 12.9315L6.47453 12.8855Z" />
+                                            <path d="M0.543091 2.40216V3.65541H1.849L2.885 15.4284C2.9134 15.7519 3.18434 16.0001 3.50912 16.0001H12.4697C12.7946 16.0001 13.0657 15.7517 13.0939 15.4282L14.1299 3.65541H15.4569V2.40216H0.543091ZM11.8958 14.7468H4.08294L3.10706 3.65541H12.8719L11.8958 14.7468Z" />
+                                            <path d="M10.0469 0H5.95294C5.37707 0 4.90857 0.4685 4.90857 1.04437V3.02872H6.16182V1.25325H9.83807V3.02872H11.0913V1.04437C11.0913 0.4685 10.6228 0 10.0469 0Z" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0">
+                                                <rect width="16" height="16" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </span>
+                            </div>
+                            <div class="ml-auto -mr-2 flex items-center flex-no-wrap hidden md:flex">
+
+
+                                <span class="btn btn-link btn-link-primary btn-icon" role="button">
+                                    <span class="btn-icon-wrapper"> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-image ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.4286 1.14282H0.571437C0.255812 1.14282 0 1.39863 0 1.71426V14.2857C0 14.6013 0.255812 14.8571 0.571437 14.8571H15.4286C15.7442 14.8571 16 14.6013 16 14.2857V1.71426C16 1.39863 15.7442 1.14282 15.4286 1.14282ZM14.8572 13.7143H1.14284V2.2857H14.8571V13.7143H14.8572Z" />
+                                                <path d="M6.80564 5.5255C6.62564 5.30397 6.31001 5.24894 6.06564 5.39713L0.256104 8.92091L0.848666 9.89825L6.23229 6.63253L12.661 14.5506L13.5485 13.8304L6.80564 5.5255Z" />
+                                                <path d="M11.8596 5.45352C11.6375 5.26134 11.3057 5.26859 11.0925 5.47106L8.12109 8.29009L8.90756 9.11944L11.5034 6.65659L15.0737 9.7465L15.8215 8.88212L11.8596 5.45352Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span>
+                                    Добавить фото
+                                </span>
+                                <span class="btn btn-link btn-link-primary btn-icon" role="button">
+                                    <span class="btn-icon-wrapper"> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-map-marker ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M8.00002 0C4.17627 0 1.06543 2.92284 1.06543 6.51559C1.06543 11.3915 7.42805 15.4121 7.69909 15.5808C7.79087 15.6381 7.89534 15.6667 8.00002 15.6667C8.10452 15.6667 8.20918 15.6379 8.30096 15.5808C8.57199 15.4121 14.9346 11.3915 14.9346 6.51559C14.9346 2.92284 11.824 0 8.00002 0ZM7.99984 14.4547C6.76824 13.615 2.18693 10.2388 2.18693 6.51559C2.18693 3.5283 4.79459 1.09814 8.00002 1.09814C11.2055 1.09814 13.8131 3.5283 13.8131 6.51559C13.8131 10.2328 9.23087 13.6139 7.99984 14.4547Z" />
+                                                <path d="M7.99994 2.98346C6.25806 2.98346 4.84106 4.37094 4.84106 6.07652C4.84106 7.78193 6.25806 9.16941 7.99994 9.16941C9.74181 9.16941 11.1588 7.78193 11.1588 6.07652C11.1588 4.37115 9.74181 2.98346 7.99994 2.98346ZM7.99994 8.07112C6.87656 8.07112 5.96256 7.17631 5.96256 6.07637C5.96256 4.9764 6.87659 4.08144 7.99994 4.08144C9.12331 4.08144 10.0373 4.97625 10.0373 6.07637C10.0373 7.17631 9.12331 8.07112 7.99994 8.07112Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="15.6667" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span>
+                                    Место на карте
+                                </span>
+                                <span class="btn btn-link btn-link-primary btn-icon" role="button">
+                                    <span class="btn-icon-wrapper"> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span>
+                                    Редактировать
+                                </span>
+                                <span class="btn btn-link btn-link-danger btn-icon" role="button">
+                                    <span class="btn-icon-wrapper"> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-delete ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M11.0492 5.51652L9.7968 5.47058L9.52527 12.8857L10.7777 12.9315L11.0492 5.51652Z" />
+                                                <path d="M8.62666 5.49353H7.37341V12.9087H8.62666V5.49353Z" />
+                                                <path d="M6.47453 12.8855L6.203 5.4704L4.95056 5.51637L5.22212 12.9315L6.47453 12.8855Z" />
+                                                <path d="M0.543091 2.40216V3.65541H1.849L2.885 15.4284C2.9134 15.7519 3.18434 16.0001 3.50912 16.0001H12.4697C12.7946 16.0001 13.0657 15.7517 13.0939 15.4282L14.1299 3.65541H15.4569V2.40216H0.543091ZM11.8958 14.7468H4.08294L3.10706 3.65541H12.8719L11.8958 14.7468Z" />
+                                                <path d="M10.0469 0H5.95294C5.37707 0 4.90857 0.4685 4.90857 1.04437V3.02872H6.16182V1.25325H9.83807V3.02872H11.0913V1.04437C11.0913 0.4685 10.6228 0 10.0469 0Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span>
+                                    Удалить
+                                </span>
+                            </div>
+                        </div>
+                        <div class="py-4 md:hidden border-t border-b w-full -mt-px">
+                            <button class="btn w-full btn-warning h-12 font-bold">Заказ запастных частей</button>
+                        </div>
+                    </section>
+
+                    <section class="tech-article-container">
+                        <h4 class="text-base-2 leading-tighter font-semibold tracking-wide text-gray-950 mt-6 md:mt-8 md:mt-5 tech-title ">Статьи</h4>
+
+
+                        <div class="tech-table articles-table mt-2">
+                            <div class="grid gap-4 items-center justify-between border-b border-indigo-100 tech-table-head font-medium text-base text-gray-400 leading-3  justify-between h-12">
+                                <span class="tech-table-cell cell-heading id truncate text-right">id</span>
+                                <span class="tech-table-cell cell-heading section truncate">Раздел</span>
+                                <span class="tech-table-cell cell-heading views truncate">Просмотры</span>
+                                <span class="tech-table-cell cell-heading title truncate hidden md:inline">Заголовок</span>
+                                <span class="tech-table-cell cell-heading actions hidden md:inline"></span>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 justify-between items-center border-b border-indigo-100 text-base leading-3 md:h-15 py-4 md:pt-0 md:pb-2 ">
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate id text-right">53453</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-950 clamp-line-2 section">Ремонт и техническое обслуживание</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate views">18\186\1024</span>
+                                <span class="tech-table-cell cell-body font-bold text-650 clamp-line-2 title">Рекомендации по применению промышленных шин</span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 justify-between items-center border-b border-indigo-100 text-base leading-3 md:h-15 py-4 md:pt-0 md:pb-2 ">
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate id text-right">53453</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-950 clamp-line-2 section">Ремонт и техническое обслуживание</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate views">18\186\1024</span>
+                                <span class="tech-table-cell cell-body font-bold text-650 clamp-line-2 title">Рекомендации по применению промышленных шин</span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 justify-between items-center border-b border-indigo-100 text-base leading-3 md:h-15 py-4 md:pt-0 md:pb-2 ">
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate id text-right">53453</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-950 clamp-line-2 section">Ремонт и техническое обслуживание</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate views">18\186\1024</span>
+                                <span class="tech-table-cell cell-body font-bold text-650 clamp-line-2 title">Рекомендации по применению промышленных шин</span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 justify-between items-center border-b border-indigo-100 text-base leading-3 md:h-15 py-4 md:pt-0 md:pb-2 is-banned">
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate id text-right">53453</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-950 clamp-line-2 section">Ремонт и техническое обслуживание</span>
+                                <span class="tech-table-cell cell-body font-medium text-gray-500 truncate views">18\186\1024</span>
+                                <span class="tech-table-cell cell-body font-bold text-650 clamp-line-2 title">Рекомендации по применению промышленных шин</span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg disabled" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-publish ">
+                                            <path d="M8 0C3.58884 0 0 3.58884 0 8C0 12.4112 3.58884 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58884 12.4112 0 8 0ZM8 14.8837C4.20428 14.8837 1.11628 11.7957 1.11628 8C1.11628 4.20428 4.20428 1.11628 8 1.11628C11.7957 1.11628 14.8837 4.20428 14.8837 8C14.8837 11.7957 11.7957 14.8837 8 14.8837Z" />
+                                            <path d="M6.54541 12.3636L10.9091 7.99999L6.54542 3.63634L6.54541 12.3636ZM7.79216 6.75322L9.03893 7.99999L7.79211 9.24681L7.79216 6.75322Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-4 md:mb-7 mt-4 md:mt-5 ">
+                            <button class="btn w-full md:w-auto btn-primary h-9 md:h-auto text-lg md:text-base">Добавить статью</button>
+                        </div>
+
+                    </section>
+
+                    <section class="tech-rent-container xl:border-l">
+                        <h4 class="text-base-2 leading-tighter font-semibold tracking-wide text-gray-950 mt-6 md:mt-8 md:mt-5 tech-title ">Обьявления аренды (4/20)</h4>
+
+
+                        <div class="tech-table rents-table mt-2">
+                            <div class="grid gap-4 items-center justify-between border-b border-indigo-100 tech-table-head font-medium text-base text-gray-400 leading-3 justify-between h-12">
+                                <span class="tech-table-cell cell-heading id truncate text-right">id</span>
+                                <span class="tech-table-cell cell-heading position truncate">Положение</span>
+                                <span class="tech-table-cell cell-heading price truncate hidden md:inline">Цена</span>
+                                <span class="tech-table-cell cell-heading views truncate">Просмотры</span>
+                                <span class="tech-table-cell cell-heading city truncate hidden md:inline">Город</span>
+                                <span class="tech-table-cell cell-heading actions hidden md:inline"></span>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 items-center justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 ">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-indigo-700 hover:text-indigo-800 font-medium" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-double mr-2">
+                                            <path d="M15.4245 4.20135H11.5108V5.35245H14.8489V14.5611H5.06479V11.2229H3.9137V15.1366C3.9137 15.4545 4.17135 15.7121 4.48923 15.7121H15.4245C15.7426 15.7121 16 15.4547 16 15.1366V4.77689C16 4.45901 15.7424 4.20135 15.4245 4.20135Z" fill="#4D53B8" />
+                                            <path d="M11.5108 0.287781H0.575531C0.257656 0.287781 0 0.545406 0 0.863312V11.223C0 11.5409 0.257656 11.7986 0.575531 11.7986H11.5108C11.8287 11.7986 12.0863 11.5409 12.0863 11.223V0.863312C12.0863 0.545406 11.8287 0.287781 11.5108 0.287781ZM10.9353 10.6475H1.15109V1.43884H10.9353V10.6475H10.9353Z" fill="#4D53B8" />
+                                        </svg>
+
+                                        Дублировать
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Описания нет
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Преимуществ нет
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 items-center justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 ">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-indigo-700 hover:text-indigo-800 font-medium" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-double mr-2">
+                                            <path d="M15.4245 4.20135H11.5108V5.35245H14.8489V14.5611H5.06479V11.2229H3.9137V15.1366C3.9137 15.4545 4.17135 15.7121 4.48923 15.7121H15.4245C15.7426 15.7121 16 15.4547 16 15.1366V4.77689C16 4.45901 15.7424 4.20135 15.4245 4.20135Z" fill="#4D53B8" />
+                                            <path d="M11.5108 0.287781H0.575531C0.257656 0.287781 0 0.545406 0 0.863312V11.223C0 11.5409 0.257656 11.7986 0.575531 11.7986H11.5108C11.8287 11.7986 12.0863 11.5409 12.0863 11.223V0.863312C12.0863 0.545406 11.8287 0.287781 11.5108 0.287781ZM10.9353 10.6475H1.15109V1.43884H10.9353V10.6475H10.9353Z" fill="#4D53B8" />
+                                        </svg>
+
+                                        Дублировать
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Описания нет
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Преимуществ нет
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 items-center justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 ">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-indigo-700 hover:text-indigo-800 font-medium" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-double mr-2">
+                                            <path d="M15.4245 4.20135H11.5108V5.35245H14.8489V14.5611H5.06479V11.2229H3.9137V15.1366C3.9137 15.4545 4.17135 15.7121 4.48923 15.7121H15.4245C15.7426 15.7121 16 15.4547 16 15.1366V4.77689C16 4.45901 15.7424 4.20135 15.4245 4.20135Z" fill="#4D53B8" />
+                                            <path d="M11.5108 0.287781H0.575531C0.257656 0.287781 0 0.545406 0 0.863312V11.223C0 11.5409 0.257656 11.7986 0.575531 11.7986H11.5108C11.8287 11.7986 12.0863 11.5409 12.0863 11.223V0.863312C12.0863 0.545406 11.8287 0.287781 11.5108 0.287781ZM10.9353 10.6475H1.15109V1.43884H10.9353V10.6475H10.9353Z" fill="#4D53B8" />
+                                        </svg>
+
+                                        Дублировать
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Описания нет
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Преимуществ нет
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 items-center justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 is-banned">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg disabled" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg disabled" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-publish ">
+                                            <path d="M8 0C3.58884 0 0 3.58884 0 8C0 12.4112 3.58884 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58884 12.4112 0 8 0ZM8 14.8837C4.20428 14.8837 1.11628 11.7957 1.11628 8C1.11628 4.20428 4.20428 1.11628 8 1.11628C11.7957 1.11628 14.8837 4.20428 14.8837 8C14.8837 11.7957 11.7957 14.8837 8 14.8837Z" />
+                                            <path d="M6.54541 12.3636L10.9091 7.99999L6.54542 3.63634L6.54541 12.3636ZM7.79216 6.75322L9.03893 7.99999L7.79211 9.24681L7.79216 6.75322Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap inline-flex items-center text-red-500 font-bold">
+                                        Выключено
+                                        <span class="tooltip inline-flex show-tooltip whitespace-pre-wrap">
+                                            <span> <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-quest-circle ml-1 mr-0_5">
+                                                    <circle cx="6" cy="6" r="6" />
+                                                    <path d="M5.44 7.311C5.44 7.047 5.518 6.795 5.674 6.555C5.836 6.315 6.01 6.123 6.196 5.979C6.382 5.829 6.553 5.655 6.709 5.457C6.871 5.259 6.952 5.061 6.952 4.863C6.952 4.653 6.88 4.491 6.736 4.377C6.592 4.263 6.391 4.206 6.133 4.206C5.629 4.206 5.272 4.473 5.062 5.007L4 4.395C4.18 3.951 4.465 3.609 4.855 3.369C5.251 3.123 5.692 3 6.178 3C6.724 3 7.195 3.159 7.591 3.477C7.993 3.789 8.194 4.221 8.194 4.773C8.194 5.025 8.14 5.259 8.032 5.475C7.93 5.691 7.804 5.877 7.654 6.033C7.51 6.183 7.363 6.327 7.213 6.465C7.069 6.597 6.943 6.735 6.835 6.879C6.733 7.023 6.682 7.167 6.682 7.311H5.44ZM6.601 9.318C6.451 9.468 6.271 9.543 6.061 9.543C5.851 9.543 5.671 9.468 5.521 9.318C5.371 9.168 5.296 8.988 5.296 8.778C5.296 8.568 5.371 8.388 5.521 8.238C5.671 8.088 5.851 8.013 6.061 8.013C6.271 8.013 6.451 8.088 6.601 8.238C6.751 8.388 6.826 8.568 6.826 8.778C6.826 8.988 6.751 9.168 6.601 9.318Z" fill="white" />
+                                                </svg>
+                                            </span>
+                                            <span class="tooltip-text mt-2 md:right-0">Превышен лимит размещений для не проверенной еденицы техники. Пожалуйста пройдите проверку.</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4 md:mb-7 mt-4 md:mt-5 ">
+                            <button class="btn w-full md:w-auto btn-primary h-9 md:h-auto text-lg md:text-base">Опубликовать обьявление аренды</button>
+                        </div>
+
+                    </section>
+
+                    <section class="tech-sale-container xl:border-l">
+                        <h4 class="text-base-2 leading-tighter font-semibold tracking-wide text-gray-950 mt-6 md:mt-8 md:mt-5 tech-title ">Обьявления продажи (6/20)</h4>
+
+
+                        <div class="tech-table sales-table mt-2">
+                            <div class="grid gap-4 items-center justify-between items-center border-b border-indigo-100 tech-table-head font-medium text-base text-gray-400 leading-3 justify-between h-12">
+                                <span class="tech-table-cell cell-heading id truncate text-right">id</span>
+                                <span class="tech-table-cell cell-heading position truncate">Положение</span>
+                                <span class="tech-table-cell cell-heading price truncate hidden md:inline">Цена</span>
+                                <span class="tech-table-cell cell-heading views truncate">Просмотры</span>
+                                <span class="tech-table-cell cell-heading city truncate hidden md:inline">Город</span>
+                                <span class="tech-table-cell cell-heading actions hidden md:inline"></span>
+                            </div>
+                            <div class="tech-table-row grid gap-4 items-center row-gap-5 md:row-gap-0 justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 ">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-indigo-700 hover:text-indigo-800 font-medium" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-double mr-2">
+                                            <path d="M15.4245 4.20135H11.5108V5.35245H14.8489V14.5611H5.06479V11.2229H3.9137V15.1366C3.9137 15.4545 4.17135 15.7121 4.48923 15.7121H15.4245C15.7426 15.7121 16 15.4547 16 15.1366V4.77689C16 4.45901 15.7424 4.20135 15.4245 4.20135Z" fill="#4D53B8" />
+                                            <path d="M11.5108 0.287781H0.575531C0.257656 0.287781 0 0.545406 0 0.863312V11.223C0 11.5409 0.257656 11.7986 0.575531 11.7986H11.5108C11.8287 11.7986 12.0863 11.5409 12.0863 11.223V0.863312C12.0863 0.545406 11.8287 0.287781 11.5108 0.287781ZM10.9353 10.6475H1.15109V1.43884H10.9353V10.6475H10.9353Z" fill="#4D53B8" />
+                                        </svg>
+
+                                        Дублировать
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Описания нет
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Преимуществ нет
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tech-table-row grid gap-4 items-center row-gap-5 md:row-gap-0 justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 ">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-indigo-700 hover:text-indigo-800 font-medium" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-double mr-2">
+                                            <path d="M15.4245 4.20135H11.5108V5.35245H14.8489V14.5611H5.06479V11.2229H3.9137V15.1366C3.9137 15.4545 4.17135 15.7121 4.48923 15.7121H15.4245C15.7426 15.7121 16 15.4547 16 15.1366V4.77689C16 4.45901 15.7424 4.20135 15.4245 4.20135Z" fill="#4D53B8" />
+                                            <path d="M11.5108 0.287781H0.575531C0.257656 0.287781 0 0.545406 0 0.863312V11.223C0 11.5409 0.257656 11.7986 0.575531 11.7986H11.5108C11.8287 11.7986 12.0863 11.5409 12.0863 11.223V0.863312C12.0863 0.545406 11.8287 0.287781 11.5108 0.287781ZM10.9353 10.6475H1.15109V1.43884H10.9353V10.6475H10.9353Z" fill="#4D53B8" />
+                                        </svg>
+
+                                        Дублировать
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Описания нет
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Преимуществ нет
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tech-table-row grid gap-4 items-center row-gap-5 md:row-gap-0 justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 ">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg " role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-danger btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ban ">
+                                            <path d="M8 0C3.58875 0 0 3.58875 0 8C0 12.4113 3.58875 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58875 12.4113 0 8 0ZM8 14.8349C4.23125 14.8349 1.16506 11.7688 1.16506 8C1.16506 4.23125 4.23125 1.16506 8 1.16506C11.7688 1.16506 14.8349 4.23125 14.8349 8C14.8349 11.7688 11.7688 14.8349 8 14.8349Z" />
+                                            <path d="M12.6947 2.5002L2.48096 12.7139L3.30462 13.5376L13.5183 3.32386L12.6947 2.5002Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-indigo-700 hover:text-indigo-800 font-medium" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-double mr-2">
+                                            <path d="M15.4245 4.20135H11.5108V5.35245H14.8489V14.5611H5.06479V11.2229H3.9137V15.1366C3.9137 15.4545 4.17135 15.7121 4.48923 15.7121H15.4245C15.7426 15.7121 16 15.4547 16 15.1366V4.77689C16 4.45901 15.7424 4.20135 15.4245 4.20135Z" fill="#4D53B8" />
+                                            <path d="M11.5108 0.287781H0.575531C0.257656 0.287781 0 0.545406 0 0.863312V11.223C0 11.5409 0.257656 11.7986 0.575531 11.7986H11.5108C11.8287 11.7986 12.0863 11.5409 12.0863 11.223V0.863312C12.0863 0.545406 11.8287 0.287781 11.5108 0.287781ZM10.9353 10.6475H1.15109V1.43884H10.9353V10.6475H10.9353Z" fill="#4D53B8" />
+                                        </svg>
+
+                                        Дублировать
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Описания нет
+                                    </span>
+                                    <span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-flash mr-2">
+                                            <path d="M12.3346 4.56469C12.2289 4.38931 12.0393 4.28225 11.8345 4.28225H9.81855L10.7075 0.725656C10.7513 0.55125 10.712 0.366344 10.6012 0.224625C10.4907 0.0829063 10.321 0 10.1411 0H5.62526C5.34223 0 5.10011 0.202813 5.05048 0.481375L3.59064 8.65656C3.56026 8.82669 3.6068 9.00147 3.71773 9.13403C3.82867 9.26641 3.99258 9.34309 4.16542 9.34309H6.0202L5.68445 15.3837C5.66927 15.6578 5.84698 15.9054 6.11152 15.9788C6.1633 15.9932 6.21586 16 6.26761 16C6.47995 16 6.68105 15.8838 6.78401 15.6888L12.3509 5.13869C12.4463 4.95784 12.4403 4.74006 12.3346 4.56469ZM6.9987 12.7788L7.22039 8.79144C7.22933 8.63106 7.17192 8.47434 7.06155 8.35775C6.95139 8.24134 6.79798 8.17516 6.63742 8.17516H4.86283L6.1142 1.16784H9.39305L8.50408 4.72444C8.4603 4.89884 8.49961 5.08375 8.61036 5.22547C8.72092 5.36719 8.89064 5.45009 9.07052 5.45009H10.8661L6.9987 12.7788Z" fill="#F56565" />
+                                        </svg>
+
+                                        Преимуществ нет
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tech-table-row grid gap-4 items-center row-gap-5 md:row-gap-0 justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 is-banned">
+                                <span class="tech-table-cell cell-body id truncate text-right">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex flex-col position truncate">
+                                    <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+                                    <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+                                    <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+                                </span>
+                                <span class="tech-table-cell cell-body price truncate">
+                                    <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+                                </span>
+                                <span class="tech-table-cell cell-body views truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+                                </span>
+                                <span class="tech-table-cell cell-body city truncate">
+                                    <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+                                </span>
+                                <span class="tech-table-cell cell-body flex items-center justify-end actions">
+
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg disabled" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-ruble ">
+                                            <path d="M9.00421 4.01666H6.49378C6.2349 4.01666 6.02503 4.22654 6.02503 4.48541V8.03332H5.48962C5.23075 8.03332 5.02087 8.24319 5.02087 8.50207C5.02087 8.76094 5.23075 8.97082 5.48962 8.97082H6.02503V10.0417H5.48962C5.23075 10.0417 5.02087 10.2515 5.02087 10.5104C5.02087 10.7693 5.23075 10.9792 5.48962 10.9792H6.02503V12.0167C6.02503 12.2755 6.2349 12.4854 6.49378 12.4854C6.75265 12.4854 6.96253 12.2755 6.96253 12.0167V10.9792H9.00421C9.26309 10.9792 9.47296 10.7693 9.47296 10.5104C9.47296 10.2515 9.26309 10.0417 9.00421 10.0417H6.96253V8.97082H9.00421C10.3701 8.97082 11.4813 7.8596 11.4813 6.49372C11.4813 5.0941 10.3412 4.01666 9.00421 4.01666ZM9.00421 8.03332H6.96253V4.95416H9.00421C9.84802 4.95416 10.5438 5.63479 10.5438 6.49376C10.5438 7.34269 9.85315 8.03332 9.00421 8.03332Z" fill="#6ACD68" />
+                                            <path d="M8 0C3.58878 0 0 3.58878 0 8C0 12.4112 3.58878 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58878 12.4112 0 8 0ZM8 15.0625C4.10572 15.0625 0.9375 11.8943 0.9375 8C0.9375 4.10572 4.10572 0.9375 8 0.9375C11.8943 0.9375 15.0625 4.10572 15.0625 8C15.0625 11.8943 11.8943 15.0625 8 15.0625Z" fill="#6ACD68" />
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-primary btn-lg disabled" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-edit ">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M15.814 3.48487L12.5162 0.187054C12.2668 -0.0621031 11.8634 -0.0622906 11.614 0.186616L1.2312 10.5484C1.14758 10.6318 1.08864 10.7369 1.0612 10.8518L0.0186664 15.2135C-0.0328337 15.429 0.0314477 15.6562 0.188229 15.813C0.309292 15.9341 0.472261 16.0001 0.639512 16.0001C0.689074 16.0001 0.738887 15.9941 0.787793 15.9824L5.14946 14.9399C5.26437 14.9124 5.36946 14.8537 5.45287 14.7699L15.8145 4.387C16.0634 4.13765 16.0632 3.73381 15.814 3.48487ZM4.67711 13.7403L1.50204 14.4992L2.26076 11.3242L12.0647 1.54065L14.4606 3.93659L4.67711 13.7403Z" />
+                                                <path d="M10.068 2.61269L9.16553 3.5152L12.4843 6.83398L13.3868 5.93147L10.068 2.61269Z" />
+                                                <path d="M10.8246 4.2721L2.84656 12.2501L3.74906 13.1526L11.7271 5.1746L10.8246 4.2721Z" />
+                                                <path d="M2.11063 10.5913L1.20813 11.4938L4.50585 14.7916L5.40836 13.8891L2.11063 10.5913Z" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="16" height="16" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <span class="btn btn-only-icon btn-link btn-link-success btn-lg" role="button">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-publish ">
+                                            <path d="M8 0C3.58884 0 0 3.58884 0 8C0 12.4112 3.58884 16 8 16C12.4112 16 16 12.4112 16 8C16 3.58884 12.4112 0 8 0ZM8 14.8837C4.20428 14.8837 1.11628 11.7957 1.11628 8C1.11628 4.20428 4.20428 1.11628 8 1.11628C11.7957 1.11628 14.8837 4.20428 14.8837 8C14.8837 11.7957 11.7957 14.8837 8 14.8837Z" />
+                                            <path d="M6.54541 12.3636L10.9091 7.99999L6.54542 3.63634L6.54541 12.3636ZM7.79216 6.75322L9.03893 7.99999L7.79211 9.24681L7.79216 6.75322Z" />
+                                        </svg>
+
+                                    </span>
+                                </span>
+                                <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+
+                                    <span class="text-xxs leading-4 whitespace-no-wrap inline-flex items-center text-red-500 font-bold">
+                                        Выключено
+                                        <span class="tooltip inline-flex show-tooltip whitespace-pre-wrap">
+                                            <span> <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" class="icon fill-current icon-quest-circle ml-1 mr-0_5">
+                                                    <circle cx="6" cy="6" r="6" />
+                                                    <path d="M5.44 7.311C5.44 7.047 5.518 6.795 5.674 6.555C5.836 6.315 6.01 6.123 6.196 5.979C6.382 5.829 6.553 5.655 6.709 5.457C6.871 5.259 6.952 5.061 6.952 4.863C6.952 4.653 6.88 4.491 6.736 4.377C6.592 4.263 6.391 4.206 6.133 4.206C5.629 4.206 5.272 4.473 5.062 5.007L4 4.395C4.18 3.951 4.465 3.609 4.855 3.369C5.251 3.123 5.692 3 6.178 3C6.724 3 7.195 3.159 7.591 3.477C7.993 3.789 8.194 4.221 8.194 4.773C8.194 5.025 8.14 5.259 8.032 5.475C7.93 5.691 7.804 5.877 7.654 6.033C7.51 6.183 7.363 6.327 7.213 6.465C7.069 6.597 6.943 6.735 6.835 6.879C6.733 7.023 6.682 7.167 6.682 7.311H5.44ZM6.601 9.318C6.451 9.468 6.271 9.543 6.061 9.543C5.851 9.543 5.671 9.468 5.521 9.318C5.371 9.168 5.296 8.988 5.296 8.778C5.296 8.568 5.371 8.388 5.521 8.238C5.671 8.088 5.851 8.013 6.061 8.013C6.271 8.013 6.451 8.088 6.601 8.238C6.751 8.388 6.826 8.568 6.826 8.778C6.826 8.988 6.751 9.168 6.601 9.318Z" fill="white" />
+                                                </svg>
+                                            </span>
+                                            <span class="tooltip-text mt-2 md:right-0">Превышен лимит размещений для не проверенной еденицы техники. Пожалуйста пройдите проверку.</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4 md:mb-7 mt-4 md:mt-5 ">
+                            <button class="btn w-full md:w-auto btn-primary h-9 md:h-auto text-lg md:text-base">Опубликовать объявление продажи</button>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+        </main>
+
+
+
+
+
+
+        <mobile-menu inline-template :is-show="isMobileMenuShow" :close="toggleMobileMenu">
+        </mobile-menu>
+
+        <div class="responsive-marker">
+            <div class="responsive-marker__item hidden xl:block rounded-full bg-red-900">xl</div>
+            <!-- /.responsive-marker__item -->
+            <div class="responsive-marker__item hidden lg:block rounded-full bg-red-800">lg</div>
+            <!-- /.responsive-marker__item -->
+            <div class="responsive-marker__item hidden md:block rounded-full bg-red-700">md</div>
+            <!-- /.responsive-marker__item -->
+            <div class="responsive-marker__item hidden sm:block rounded-full bg-red-600">sm</div>
+            <!-- /.responsive-marker__item -->
+            <div class="responsive-marker__item block rounded-full bg-red-500">xs</div>
+            <!-- /.responsive-marker__item -->
+        </div>
+        <!-- /.tmp -->
+
+    </div>
+
+    <script src="frontend/js/app.js?v=1252748921"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
+
+    <!--
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+
+        <script src="/js/assets.js?v=1252748921"></script>
+        <script src="/js/main.js?v=1252748921"></script>
+
+-->
+
+</body>
+
+</html>

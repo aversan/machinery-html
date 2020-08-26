@@ -1,0 +1,48 @@
+{% set body = [
+  {  },
+  {  },
+  {  },
+  { isBanned: true, },
+] %}
+
+<div class="tech-table rents-table mt-2">
+  <div class="grid gap-4 items-center justify-between border-b border-indigo-100 tech-table-head font-medium text-base text-gray-400 leading-3 justify-between h-12">
+    <span class="tech-table-cell cell-heading id truncate text-right">id</span>
+    <span class="tech-table-cell cell-heading position truncate">Положение</span>
+    <span class="tech-table-cell cell-heading price truncate hidden md:inline">Цена</span>
+    <span class="tech-table-cell cell-heading views truncate">Просмотры</span>
+    <span class="tech-table-cell cell-heading city truncate hidden md:inline">Город</span>
+    <span class="tech-table-cell cell-heading actions hidden md:inline"></span>
+  </div>
+  {% for item in body %}
+    <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 items-center justify-between border-b border-indigo-100 relative py-4 md:pt-0 md:pb-2 md:h-18 {{ item.isBanned ? 'is-banned' : '' }}">
+      <span class="tech-table-cell cell-body id truncate text-right">
+        <span class="text-base leading-3 font-medium text-gray-500 truncate">53453</span>
+      </span>
+      <span class="tech-table-cell cell-body flex flex-col position truncate">
+        <span class="text-base font-medium clamp-line-2 text-gray-950">Вакуумные машины</span>
+        <span class="text-success font-medium text-xxs leading-tighter truncate">Подмешивание</span>
+        <span class="text-gray-400 font-medium text-xxs leading-ligher truncate">Перевозка опасных грузов</span>
+      </span>
+      <span class="tech-table-cell cell-body price truncate">
+        <span class="text-lg leading-none truncate font-alt font-bold text-gray-950">₽ 500 м3</span>
+      </span>
+      <span class="tech-table-cell cell-body views truncate">
+        <span class="text-base leading-3 font-medium text-gray-500 truncate">18\186\1024</span>
+      </span>
+      <span class="tech-table-cell cell-body city truncate">
+        <span class="text-base leading-3 font-medium text-gray-650 truncate">Тюмень</span>
+      </span>
+      <span class="tech-table-cell cell-body flex items-center justify-end actions">
+        {% include './tech-table-actions-2.twig' %}
+      </span>
+      <div class="md:absolute md:right-0 md:bottom-0 flex px-2 md:h-8 justify-between extra-actions">
+        {%if item.isBanned %}
+          {% include './tech-table-extra-off.twig' %}
+        {%else%}
+          {% include './tech-table-extra-actions.twig' %}
+        {%endif%}
+      </div>
+    </div>
+  {% endfor %}
+</div>

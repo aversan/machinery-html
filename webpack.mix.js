@@ -18,7 +18,7 @@ const tailwindcss = require('tailwindcss')
  */
 
 mix.js('resources/js/app.js', 'public/frontend/js/app.js')
-   
+
    // .postCss('resources/css/app.css', 'public/css')
    // .tailwind('./tailwind.config.js')
     // .styles(['public/css/app.css','public/css/bootstrap.css'],'public/css/admin.css');
@@ -27,7 +27,7 @@ mix.sass('resources/scss/main.scss', 'public/frontend/css/style.css')
   .options({
     processCssUrls: false,
     postCss: [ tailwindcss('./tailwind.config.js') ],
-  })
+  });
 
 // if (mix.inProduction()) {
 //   mix

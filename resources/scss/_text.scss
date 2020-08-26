@@ -1,0 +1,13 @@
+.text-primary { @apply text-indigo-700; }
+.text-success { @apply text-green-400; }
+.text-danger { @apply text-red-500; }
+
+.clamp-line-2 {
+  --max-lines: 2;
+  --lh: .875rem;
+  display: -webkit-box;
+  -webkit-line-clamp: var(--max-lines);
+  -webkit-box-orient: vertical;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+}

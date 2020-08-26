@@ -1,0 +1,20 @@
+{% extends "../layout/base_layout.twig" %}
+
+{% set header = '' %}
+
+{% block content %}
+
+
+  <main>
+    <div class="max-w-7xl mx-auto px-4 xl:px-8 py-8 md:py-5 xl:py-8">
+      <div class="grid gap-7 tech-list">
+        {% include '../components/tech/tech-item.twig' %}
+        {% include '../components/tech/tech-item.twig' %}
+      </div>
+    </div>
+  </main>
+
+
+
+
+{% endblock %}

@@ -1,23 +1,18 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-@import 'var';
-
-@import 'connection/blocks';
 
 @import 'fonts';
+
 @import 'base/base';
 
-@import '../twig/common/header/header';
-@import '../twig/common/footer/footer';
-@import '../twig/common/modal/modal';
-
-
-@import 'button';
 @import 'common';
-@import 'media';
-
+@import 'button';
+@import 'icon';
+@import 'text';
+@import 'tech';
+@import 'tooltip';
 
 @import '../twig/debug/debug';
+
+@tailwind components;
+
+@tailwind utilities;

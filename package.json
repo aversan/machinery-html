@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.2.0",
     "axios": "^0.19.2",
     "browser-sync": "*",
     "cross-env": "^7.0",
@@ -28,7 +30,8 @@
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.15.2",
     "sass-loader": "^8.0.0",
-    "tailwindcss": "^1.2",
+    "tailwindcss": "^1.7.3",
+    "tailwindcss-aspect-ratio": "^3.0.0",
     "vue": "^2.6",
     "vue-template-compiler": "^2.6",
     "vue2-collapse": "^1.0.15"

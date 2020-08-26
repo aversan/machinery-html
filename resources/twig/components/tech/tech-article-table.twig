@@ -1,0 +1,27 @@
+{% set body = [
+  { id: '53453', section: 'Ремонт и техническое обслуживание', views: '18\186\1024', title: 'Рекомендации по применению промышленных шин' },
+  { id: '53453', section: 'Ремонт и техническое обслуживание', views: '18\186\1024', title: 'Рекомендации по применению промышленных шин' },
+  { id: '53453', section: 'Ремонт и техническое обслуживание', views: '18\186\1024', title: 'Рекомендации по применению промышленных шин' },
+  { id: '53453', section: 'Ремонт и техническое обслуживание', views: '18\186\1024', title: 'Рекомендации по применению промышленных шин', isBanned: true }
+] %}
+
+<div class="tech-table articles-table mt-2">
+  <div class="grid gap-4 items-center justify-between border-b border-indigo-100 tech-table-head font-medium text-base text-gray-400 leading-3  justify-between h-12">
+    <span class="tech-table-cell cell-heading id truncate text-right">id</span>
+    <span class="tech-table-cell cell-heading section truncate">Раздел</span>
+    <span class="tech-table-cell cell-heading views truncate">Просмотры</span>
+    <span class="tech-table-cell cell-heading title truncate hidden md:inline">Заголовок</span>
+    <span class="tech-table-cell cell-heading actions hidden md:inline"></span>
+  </div>
+  {% for item in body %}
+    <div class="tech-table-row grid gap-4 row-gap-5 md:row-gap-0 justify-between items-center border-b border-indigo-100 text-base leading-3 md:h-15 py-4 md:pt-0 md:pb-2 {{ item.isBanned ? 'is-banned' : '' }}">
+      <span class="tech-table-cell cell-body font-medium text-gray-500 truncate id text-right">{{ item.id }}</span>
+      <span class="tech-table-cell cell-body font-medium text-gray-950 clamp-line-2 section">{{ item.section }}</span>
+      <span class="tech-table-cell cell-body font-medium text-gray-500 truncate views">{{ item.views }}</span>
+      <span class="tech-table-cell cell-body font-bold text-650 clamp-line-2 title">{{ item.title }}</span>
+      <span class="tech-table-cell cell-body flex items-center justify-end actions">
+        {% include './tech-table-actions.twig' %}
+      </span>
+    </div>
+  {% endfor %}
+</div>

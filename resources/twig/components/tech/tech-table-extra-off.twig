@@ -1,0 +1,9 @@
+{% import "../icons/icons.twig" as icons %}
+
+<span class="text-xxs leading-4 whitespace-no-wrap inline-flex items-center text-red-500 font-bold">
+  Выключено
+  <span class="tooltip inline-flex show-tooltip whitespace-pre-wrap">
+    <span>{{ icons.get('quest-circle', 'ml-1 mr-0_5') }}</span>
+    <span class="tooltip-text mt-2 md:right-0">Превышен лимит размещений для не проверенной еденицы техники. Пожалуйста пройдите проверку.</span>
+  </span>
+</span>

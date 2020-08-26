@@ -1,0 +1,13 @@
+{% import "../icons/icons.twig" as icons %}
+
+<div class="relative">
+  <div class="aspect-ratio-2/1 md:aspect-ratio-none"></div>
+  <div class="absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center text-center rounded-xl bg-indigo-100 text-indigo-350">
+    {{ icons.get('image-group', 'w-5_5 h-5_5') }}
+    <span class="text-lg leading-normal font-medium mt-3 flex flex-col">
+      <span>Нет доступной</span>
+      <span>фотографии</span>
+    </span>
+  </div>
+  <img class="w-full h-full hidden md:block md:invisible" src="http://placehold.it/185x144" alt="">
+</div>

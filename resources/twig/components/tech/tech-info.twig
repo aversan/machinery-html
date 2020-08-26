@@ -1,0 +1,32 @@
+{% import "../icons/icons.twig" as icons %}
+
+{% set items = [
+  { title: 'Емкость цистерны:', text: '6м' },
+  { title: 'Тип вакуумной машины:', text: 'Илосос' },
+  { title: 'Глубина всасывания', text: '23 м' },
+  { title: 'Длина шланга:', text: '6,7 м3' },
+  { title: 'Емкость цистерны:', text: '6м' },
+  { title: 'Тип вакуумной машины:', text: 'Илосос' }
+] %}
+
+<article class="tech-info">
+  <header class="mb-4_5 mt-5 md:mt-8">
+    <h3 class="text-xl leading-tighter font-bold tracking-wide text-black">Вакуумная машина <span class="text-primary">DONGFENG 134-231</span></h3>
+    <p class="text-indigo-250 font-medium text-sm tech-card-subtitle mt-1_5">(Асенизаторы \ илососы длинная строка )</p>
+  </header>
+  <div class="flex flex-col md:flex-row md:items-center pb-5 md:pb-7">
+
+
+    <div class="mb-5 md:mb-0 md:mr-6 md:w-1/4 xl:w-1/3">
+{#      {% include './tech-info-image.twig' %}#}
+      {% include './tech-info-image-empty.twig' %}
+    </div>
+    <div class="flex-1">
+      <ul class="list-none tech-info-list grid gap-2">
+        {% for item in items %}
+          <li class="leading-tighter text-base grid-flow-row flex tech-info-item"><span class="text-gray-500 title flex-1">{{ item.title }}</span><span class="text-gray-950 ml-4 text flex items-end justify-end md:justify-start">{{ item.text }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,12 @@
+<div class="flex items-center flex-no-wrap border-t border-b tech-actions-container h-14 md:h-15">
+  <button class="btn btn-primary">Отправить на проверку</button>
+  <div class="ml-auto -mr-2 flex items-center flex-no-wrap flex md:hidden">
+    {% include './tech-actions-mobile.twig' %}
+  </div>
+  <div class="ml-auto -mr-2 flex items-center flex-no-wrap hidden md:flex">
+    {% include './tech-actions-desktop.twig' %}
+  </div>
+</div>
+<div class="py-4 md:hidden border-t border-b w-full -mt-px">
+  <button class="btn w-full btn-warning h-12 font-bold">Заказ запастных частей</button>
+</div>

@@ -1,0 +1,10 @@
+{% import "../icons/icons.twig" as icons %}
+
+<header class="flex items-end flex-no-wrap pt-3 md:pt-7 xl:pt-5_5 tech-header">
+  <span class="text-lg px-2 py-1 rounded font-medium bg-indigo-500 text-white leading-none"># i-5226</span>
+  {% include './tech-progress-confirm.twig' %}
+  <button class="btn btn-warning font-bold inline-flex items-center h-6_5 py-0 ml-4">
+    {{ icons.get('box', 'inline-block md:hidden') }}
+    <span class="hidden md:inline">Заказ запастных частей</span>
+  </button>
+</header>

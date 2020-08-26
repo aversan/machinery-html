@@ -1,0 +1,14 @@
+{% import "../icons/icons.twig" as icons %}
+
+<span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-indigo-700 hover:text-indigo-800 font-medium" role="button">
+  {{ icons.get('double', 'mr-2') }}
+  Дублировать
+</span>
+<span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+  {{ icons.get('flash', 'mr-2') }}
+  Описания нет
+</span>
+<span class="text-xxs leading-4 whitespace-no-wrap px-2 inline-flex items-center text-red-500 font-medium">
+  {{ icons.get('flash', 'mr-2') }}
+  Преимуществ нет
+</span>

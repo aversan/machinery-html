@@ -1,0 +1,7 @@
+{% macro get(icon, iconClass) %}
+  {% include './assets/' ~ icon ~ '.svg.twig' with {
+    'icon': icon,
+    'iconClass': iconClass
+  } only
+  %}
+{% endmacro %}

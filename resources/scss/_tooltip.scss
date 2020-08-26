@@ -1,0 +1,14 @@
+.tooltip {
+  @apply relative;
+
+  .tooltip-text {
+    @apply text-xxs leading-normal text-gray-750 invisible px-2_5 py-1_5 absolute z-50 inline-block rounded bg-white font-medium border border-gray-100;
+    top: 100%;
+    width: 235px;
+  }
+
+  &:hover .tooltip-text,
+  &.show-tooltip .tooltip-text {
+    @apply visible;
+  }
+}
